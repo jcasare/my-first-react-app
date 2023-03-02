@@ -17,6 +17,7 @@ body {
   margin: 4rem auto;
   display: grid;
   gap: 2rem;
+  align-items: start;
 }
 .single-book {
   border-radius: 1rem;
@@ -38,6 +39,9 @@ body {
   color: #617d98;
   font-size: 0.75rem;
   margin-top: 0.5rem;
+}
+.single-book p {
+  margin: 1rem 0 0.5rem;
 }
 
 @media only screen and (min-width: 768px) {
