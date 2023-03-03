@@ -2,90 +2,29 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 
 import './styles.css'
-
-const bookCollection = [
-  {
-    title: "The Courage to Be Free: Florida's Blueprint for America's Revival",
-    imgLink:
-      'https://m.media-amazon.com/images/I/41Pw77onK7L._SX329_BO1,204,203,200_.jpg',
-    author: 'Ron DeSantis',
-    id: 1,
-  },
-  {
-    title: 'Never Give an Inch: Fighting for the America I Love',
-    imgLink:
-      'https://m.media-amazon.com/images/I/41OxPE1ZMbL._SX329_BO1,204,203,200_.jpg',
-    author: 'Mike Pompeo',
-    id: 2,
-  },
-  {
-    title: 'Start, Stay, or Leave: The Art of Decision Making',
-    imgLink:
-      'https://m.media-amazon.com/images/I/41qGiu+6bpL._SX331_BO1,204,203,200_.jpg',
-    author: 'Trey Gowdy',
-    id: 3,
-  },
-  {
-    title:
-      'Unified: How Our Unlikely Friendship Gives Us Hope for a Divided Country',
-    imgLink:
-      'https://m.media-amazon.com/images/I/41EiN-1Bb9L._SX331_BO1,204,203,200_.jpg',
-    author: 'Tim Scott',
-    id: 4,
-  },
-]
+import { bookCollection } from './books'
+import Book from './Book'
 
 const BookList = () => {
+  const getBook = (id) => {
+    const book = bookCollection.find((book) => book.id === id)
+    console.log(book)
+  }
   return (
     <section className="booklist">
-      <EventExamples />
       {bookCollection.map((book) => {
         const { id } = book
-        return <Book {...book} key={id} />
+        return (
+          <Book
+            {...book}
+            key={id}
+            displayBook={() => {
+              getBook(id)
+            }}
+          />
+        )
       })}
     </section>
-  )
-}
-const EventExamples = () => {
-  const handleClick = (e) => {
-    console.log(e)
-
-    alert('Nice button click')
-    console.log(`Input name :${e.target.name}`)
-  }
-  const handleFormInput = (e) => {
-    alert('form handler')
-    console.log(`input value: ${e.target.value}`)
-  }
-  const handleFormSubmit = (e) => {
-    e.preventDefault()
-  }
-  return (
-    <section>
-      <form onSubmit={handleFormSubmit}>
-        <h2>Typical Form</h2>
-        <input
-          type="text"
-          name="example"
-          onChange={handleFormInput}
-          style={{ margin: '1rem 0' }}
-        />
-        <button name="clickBtn" onClick={handleClick}>
-          Click me
-        </button>
-      </form>
-    </section>
-  )
-}
-
-const Book = (props) => {
-  const { imgLink, title, author } = props
-  return (
-    <article className="single-book">
-      <img src={imgLink} alt={title} />
-      <h2>{title}</h2>
-      <h4>{author}</h4>
-    </article>
   )
 }
 
