@@ -11,20 +11,24 @@ const BookList = () => {
     console.log(book)
   }
   return (
-    <section className="booklist">
-      {bookCollection.map((book) => {
-        const { id } = book
-        return (
-          <Book
-            {...book}
-            key={id}
-            displayBook={() => {
-              getBook(id)
-            }}
-          />
-        )
-      })}
-    </section>
+    <>
+      <h1 className="page-title">Amaazon Best Selling Books</h1>
+      <section className="booklist">
+        {bookCollection.map((book, index) => {
+          const { id } = book
+          return (
+            <Book
+              {...book}
+              key={id}
+              displayBook={() => {
+                getBook(id)
+              }}
+              number={index}
+            />
+          )
+        })}
+      </section>
+    </>
   )
 }
 

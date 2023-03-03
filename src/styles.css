@@ -10,7 +10,10 @@ body {
   background: #f1f5f8;
   color: #222;
 }
-
+.page-title {
+  margin: 2rem auto;
+  text-align: center;
+}
 .booklist {
   width: 90vw;
   max-width: 1170px;
@@ -21,9 +24,10 @@ body {
 }
 .single-book {
   border-radius: 1rem;
-  padding: 2rem;
+  padding: 3rem;
   text-align: center;
   background: white;
+  position: relative;
 }
 .single-book img {
   width: 100%;
@@ -33,6 +37,7 @@ body {
 .single-book h2 {
   font-size: 1rem;
   margin-top: 1rem;
+  padding: 2rem;
 }
 .single-book h4 {
   letter-spacing: 2px;
@@ -42,6 +47,17 @@ body {
 }
 .single-book p {
   margin: 1rem 0 0.5rem;
+}
+.book-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 1rem;
+  padding: 0.75rem;
+  background-color: #c35600;
+  color: white;
+  border-top-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
 }
 
 @media only screen and (min-width: 768px) {
