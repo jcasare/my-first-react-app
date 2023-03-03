@@ -38,10 +38,42 @@ const bookCollection = [
 const BookList = () => {
   return (
     <section className="booklist">
+      <EventExamples />
       {bookCollection.map((book) => {
         const { id } = book
         return <Book {...book} key={id} />
       })}
+    </section>
+  )
+}
+const EventExamples = () => {
+  const handleClick = (e) => {
+    console.log(e)
+
+    alert('Nice button click')
+    console.log(`Input name :${e.target.name}`)
+  }
+  const handleFormInput = (e) => {
+    alert('form handler')
+    console.log(`input value: ${e.target.value}`)
+  }
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
+  }
+  return (
+    <section>
+      <form onSubmit={handleFormSubmit}>
+        <h2>Typical Form</h2>
+        <input
+          type="text"
+          name="example"
+          onChange={handleFormInput}
+          style={{ margin: '1rem 0' }}
+        />
+        <button name="clickBtn" onClick={handleClick}>
+          Click me
+        </button>
+      </form>
     </section>
   )
 }
